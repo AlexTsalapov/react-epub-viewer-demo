@@ -1,0 +1,101 @@
+{
+  "name": "react-epub-viewer",
+  "version": "0.1.9",
+  "author": {
+    "name": "NB",
+    "email": "altmshfkgudtjr@naver.com"
+  },
+  "description": "Epub viewer for React.js powered by Epub.js",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "epub",
+    "viewer",
+    "React"
+  ],
+  "main": "lib/modules/index.js",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "homepage": "/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/altmshfkgudtjr/react-epub-viewer"
+  },
+  "bugs": {
+    "url": "https://github.com/altmshfkgudtjr/react-epub-viewer/issues",
+    "email": "altmshfkgudtjr@naver.com"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "prebuild": "react-scripts test --watchAll=false --passWithNoTests",
+    "build": " react-scripts build",
+    "test": "react-scripts test",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
+    "clean": "rimraf lib",
+    "precompile": "react-scripts test --watchAll=false --passWithNoTests && yarn clean",
+    "compile": "babel src --out-dir lib --extensions .ts,.tsx",
+    "postcompile": "cp -r ./src/types ./lib/types"
+  },
+  "dependencies": {
+    "@use-gesture/react": "^10.3.1",
+    "axios": "^1.7.9",
+    "epubjs": "^0.3.88",
+    "react-device-detect": "^2.2.3",
+    "react-epub-viewer": "^0.1.9",
+    "react-swipeable": "^7.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.14",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.13.8",
+    "@babel/plugin-proposal-optional-chaining": "^7.13.12",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.17.13",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-redux": "^7.1.16",
+    "@types/styled-components": "^5.1.7",
+    "babel-plugin-module-resolver": "4.0.0",
+    "babel-plugin-styled-components": "^1.12.0",
+    "gh-pages": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-scripts": "^5.0.0",
+    "styled-components": "^5.2.3",
+    "typescript": "^4.2.3"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "types": "lib/types/index.d.ts"
+}
