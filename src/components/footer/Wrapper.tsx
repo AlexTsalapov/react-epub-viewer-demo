@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import palette from 'lib/styles/palette'
 
 const Wrapper = styled.div`
+background-color: #fff;
   position: fixed;
   left: 0;
   bottom: 0;

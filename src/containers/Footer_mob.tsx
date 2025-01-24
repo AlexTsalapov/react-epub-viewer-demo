@@ -15,7 +15,7 @@ const Footer_mob = ({ title, nowPage, totalPage, isVisible }: Props) => {
       <Item text={title} />
       {/* Прогресс-бар отображает прогресс только на основе переданных данных */}
       <ProgressBar progress={progressPercentage} />
-      <Item text={`Страница ${nowPage} из ${totalPage}`} />
+      <Item text={`Прочитано ${progressPercentage.toFixed(2)}%`} />
     </Wrapper_mob>
   );
 };

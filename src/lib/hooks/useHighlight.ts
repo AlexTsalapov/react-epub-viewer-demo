@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
 
 // Импортируем нужные экшены из слайса
 import {

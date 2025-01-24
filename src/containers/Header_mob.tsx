@@ -1,25 +1,44 @@
+// Header_mob.tsx
 import React, { useState } from 'react';
 // components
 import Wrapper from 'components/header/Wrapper';
 import Layout, { AutoLayout, AutoLayout_mob, ControlButtons } from 'components/header/Layout';
 import Logo from 'components/header/Logo';
 import ControlBtn from 'components/header/ControlBtn';
-import { BookStyle } from 'types/book';
 import SettingsComponent from './SettingsComponent';
+import { BookStyle, BookFlow } from 'types/book';
 
-const Header_mob = ({
+interface Props {
+  onNavToggle: () => void;
+  onOptionToggle: () => void;
+  onLearningToggle: () => void;
+  onAddBookmark: () => void; // Для добавления закладки
+  nowPage: number;
+  totalPage: number;
+  setIsFooterVisible: (isVisible: boolean) => void;
+  bookStyle: BookStyle;
+  onBookStyleChange: (bookStyle: BookStyle) => void;
+  viewerRef: React.RefObject<HTMLElement>;
+  productName: string;
+  bookFlow: BookFlow;
+}
+
+const Header_mob: React.FC<Props> = ({
   onNavToggle,
   onOptionToggle,
   onLearningToggle,
+  onAddBookmark,
   nowPage,
   totalPage,
   setIsFooterVisible,
   bookStyle,
   onBookStyleChange,
   viewerRef,
-  productName, // Новый проп
-}: Props) => {
+  productName,
+  bookFlow,
+}) => {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+  const [isContextMenu, setIsContextMenu] = useState(false); // Перенесено из BookmarkButton, если нужно
 
   const handleSettingsClick = () => {
     const newVisibility = !isSettingsVisible;
@@ -46,7 +65,7 @@ const Header_mob = ({
           >
             Осталось {remainingPages} стр.
           </div>
-          <Logo productName={productName} /> {/* Передаем название товара в Logo */}
+          <Logo productName={productName} /> {/* Передаём название товара в Logo */}
         </>
       )}
       {isSettingsVisible && (
@@ -57,10 +76,17 @@ const Header_mob = ({
         />
       )}
       <ControlButtons>
+        {/* Кнопка меню навигации */}
         <ControlBtn
           message={<img src="/wp-content/uploads/2024/12/chit_berger_mob.svg" alt="menu-icon" />}
           onClick={onNavToggle}
         />
+        {/* Кнопка добавления закладки */}
+        <ControlBtn
+          message={<img src="/wp-content/uploads/2025/01/mobilka_zakladka_vot-tak.svg" alt="bookmark-icon" />}
+          onClick={onAddBookmark} // Привязываем к onAddBookmark
+        />
+        {/* Кнопка настроек */}
         <ControlBtn
           message={
             <img
@@ -74,28 +100,14 @@ const Header_mob = ({
           }
           onClick={handleSettingsClick}
         />
+        {/* Ещё одна кнопка добавления закладки (если необходимо) */}
         <ControlBtn
           message={<img src="/wp-content/uploads/2024/12/chit_zakladki_mob.svg" alt="bookmark-icon" />}
-          onClick={onLearningToggle}
+          onClick={onLearningToggle}// Привязываем к onAddBookmark
         />
       </ControlButtons>
     </AutoLayout_mob>
   );
 };
 
-
-  
-  interface Props {
-    onNavToggle: (value?: boolean) => void;
-    onOptionToggle: (value?: boolean) => void;
-    onLearningToggle: (value?: boolean) => void;
-    nowPage: number;
-    totalPage: number;
-    setIsFooterVisible: (isVisible: boolean) => void;
-    bookStyle: BookStyle;
-    onBookStyleChange: (bookStyle: BookStyle) => void;
-    viewerRef: React.RefObject<HTMLElement>;
-    productName:string;
-  }
-  
-  export default Header_mob;
+export default Header_mob;

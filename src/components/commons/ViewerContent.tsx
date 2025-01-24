@@ -8,7 +8,7 @@ const ViewerContent = styled.div`
   position: relative;
 
   /* Убедитесь, что компонент занимает нужное место */
-  width: 92.222vw;
+
   height: 100%;
   margin: 0 auto;
 

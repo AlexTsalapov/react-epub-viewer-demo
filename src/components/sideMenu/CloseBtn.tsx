@@ -41,7 +41,7 @@ const Btn = styled.button`
     right: 3vw;
     width: 10.667vw;
     height: 10.667vw;
-    top: 44vw;
+    top: 110vw;
     
   }
 `;

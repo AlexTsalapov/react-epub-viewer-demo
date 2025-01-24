@@ -49,6 +49,7 @@ const Container = styled.div<{ show: boolean }>`
   max-width: 95vw;
   height: 100vh;
   top: 0;
+  overflow:auto;
   left: 0;
   z-index: ${zIndex.menu}; // Меню выше оверлея
   box-shadow: -4px 0 8px 0 rgba(0, 0, 0, 0.16);

@@ -21,7 +21,7 @@ export const AutoLayout = styled.div`
   border-bottom: 1px solid #cecece;
   padding-bottom: 2.222vw;
   margin: 0 auto;
-  margin: 1.667vw  3.889vw 1.667vw 3.889vw;
+  margin: 1vw  3.889vw 1vw 3.889vw;
 
   // & > div {
   //   display: flex;
@@ -66,7 +66,7 @@ export const TextWrapper_mob = styled.div`
     justify-content: center;
     width: 91.733vw;
     margin: 0 auto;
-    margin-top: 10.667vw;
+    margin-top: 8.667vw;
     margin-bottom: 6.4vw;
     padding-bottom: 4.267vw;
     border-bottom: 1px solid #cecece;
